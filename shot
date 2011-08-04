@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+file="/tmp/shot.$RANDOM.png"
+import -window root $file
+curl -v -F "file=@$file" http://localhost:4567/upload
+notify-send 'Uploaded $file'
+rm $file
