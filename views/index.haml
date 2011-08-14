@@ -1,6 +1,7 @@
 %div{:id => 'wrap'}
-	$div{}
-	= "#{bar}"
-	sasasa
-	= "hahasas"	
- 
+  Dreen
+  %h2 Shots
+  %ul
+    - @pictures.each do |shot|
+      %li
+        %img{:src => "shots/#{shot.name}"}
