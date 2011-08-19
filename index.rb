@@ -25,6 +25,10 @@ get '/' do
     haml :index, :locals => { :bar => foo }  
 end
 
+get '/loadmore':
+
+end
+
 get '/upload' do
 	FileUtils.mkdir_p('public/shots') if !File.exist?('public/shots')
 	@msg = "Select a file first"
@@ -46,6 +50,8 @@ post '/upload' do
 
     filename = "public/shots/#{name}" 
     FileUtils.cp tmpfile, filename
+
+
     @msg = "wrote to #{filename}\n"
     @shot = Shot.new :name => name, :created_at => Time.now
     @shot.save
@@ -57,9 +63,3 @@ get '/page/:page' do |page|
 	bar = "sa"
 	haml :index, :locals => {:page => page, :bar => bar}
 end
-
-
-
-
-
-
